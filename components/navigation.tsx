@@ -208,10 +208,10 @@ export function Navigation() {
               </Link>
 
               <div className="flex items-center justify-between px-3 py-2 border-t border-border/40 mt-2 pt-4">
-                <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
+                {/* <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
                   {isDark ? <SunIcon /> : <MoonIcon />}
                   <span className="ml-2">{isDark ? "Light" : "Dark"}</span>
-                </Button>
+                </Button> */}
 
                 {/* Mobile Language Dropdown */}
                 <div className="relative" ref={languageDropdownRef}>
@@ -228,7 +228,7 @@ export function Navigation() {
                   </button>
                   
                   {isLanguageDropdownOpen && (
-                    <div className="absolute right-0 top-full mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50">
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
