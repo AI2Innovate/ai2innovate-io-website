@@ -202,7 +202,7 @@ export const translations = {
     dataPipelinesSubtitle: "Enterprise-ready AI & data pipelines for analytics and MLOps.",
     bigDataSuiteTitle: "Big Data & Governance Suite",
     bigDataSuiteSubtitle: "Integrated open-source big data stack for enterprises.",
-    agentsPlatformTitle: "MultiminLAB Agents Platform",
+    agentsPlatformTitle: "MultimindLAB Agents Platform",
     agentsPlatformSubtitle: "No-code agent builder for ops, sales, and care.",
     healiumFrameworkTitle: "Healium Automation Framework",
     healiumFrameworkSubtitle: "Next Generation Test Automation Platform",
@@ -284,6 +284,29 @@ export const translations = {
     // Contact Page - Missing keys
     responseTime: "We typically respond within 1-2 business days",
     confidentiality: "All communications are treated with strict confidentiality",
+
+    // Contact Form
+    nameLabel: "Name",
+    emailLabel: "Email",
+    companyLabel: "Company",
+    topicLabel: "Topic",
+    messageLabel: "Message",
+    namePlaceholder: "Your full name",
+    emailPlaceholder: "your.email@company.com",
+    companyPlaceholder: "Your company name",
+    topicPlaceholder: "Select a topic",
+    messagePlaceholder: "Tell us about your project, requirements, or questions...",
+    generalInquiry: "General Inquiry",
+    consultingServices: "Consulting Services",
+    productInformation: "Product Information",
+    technicalSupport: "Technical Support",
+    careers: "Careers",
+    other: "Other",
+    sendingMessage: "Sending...",
+    successMessage: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+    errorMessage: "Sorry, there was an error sending your message. Please try again or contact us directly.",
+    contactDescription: "Questions about our services, general information, or project discussions",
+    viewWebsite: "View Website",
 
     // Products Page - Missing keys
     bigDataSuiteDescription: "We implement, customize, and support best-in-class OSS tools.",
@@ -490,12 +513,12 @@ export const translations = {
     productsHeroSubtitle: "Van OSS SDK's tot enterprise platforms",
     multiMindSDKTitle: "MultiMindSDK",
     multiMindSDKSubtitle:
-      "Framework UE voor l'orchestration IA unifiée pour agents, outils, mémoire, workflows et garde-fous.",
+      "Framework UE voor l'orchestration IA unifiée voor agents, outils, mémoire, workflows et garde-fous.",
     dataPipelinesTitle: "Data Pipelines",
-    dataPipelinesSubtitle: "Pipelines IA & données prêts pour l'entreprise pour l'analytique et MLOps.",
+    dataPipelinesSubtitle: "Pipelines IA & données prontos pour l'entreprise pour l'analytique et MLOps.",
     bigDataSuiteTitle: "Suite Big Data & Gouvernance",
     bigDataSuiteSubtitle: "Stack big data open-source intégré pour les entreprises.",
-    agentsPlatformTitle: "Plateforme MultiminLAB Agents",
+    agentsPlatformTitle: "Plateforme MultimindLAB Agents",
     agentsPlatformSubtitle: "Constructeur d'agents sans code pour les ops, ventes et soins.",
     healiumFrameworkTitle: "Framework d'Automatisation Healium",
     healiumFrameworkSubtitle: "Plateforme d'Automatisation de Tests Nouvelle Génération",
@@ -579,6 +602,29 @@ export const translations = {
     responseTime: "We reageren meestal binnen 1-2 werkdagen",
     confidentiality: "Alle communicatie wordt behandeld met strikte vertrouwelijkheid",
 
+    // Contact Form
+    nameLabel: "Naam",
+    emailLabel: "E-mail",
+    companyLabel: "Bedrijf",
+    topicLabel: "Onderwerp",
+    messageLabel: "Bericht",
+    namePlaceholder: "Uw volledige naam",
+    emailPlaceholder: "u.email@bedrijf.nl",
+    companyPlaceholder: "Uw bedrijfsnaam",
+    topicPlaceholder: "Kies een onderwerp",
+    messagePlaceholder: "Vertel ons over uw project, vereisten of vragen...",
+    generalInquiry: "Algemene Vraag",
+    consultingServices: "Consulting Diensten",
+    productInformation: "Product Informatie",
+    technicalSupport: "Technische Ondersteuning",
+    careers: "Carrières",
+    other: "Anders",
+    sendingMessage: "Verzenden...",
+    successMessage: "Bedankt! Uw bericht is succesvol verzonden. We nemen spoedig contact met u op.",
+    errorMessage: "Sorry, er was een fout bij het verzenden van uw bericht. Probeer het opnieuw of neem contact met ons rechtstreeks op.",
+    contactDescription: "Vragen over onze diensten, algemene informatie of projectdiscussies",
+    viewWebsite: "Website Bekijken",
+
     // Products Page - Missing keys
     bigDataSuiteDescription: "We implementeren, passen aan en ondersteunen best-in-class OSS tools.",
     agentsPlatformEarlyAccess:
@@ -642,7 +688,7 @@ export const translations = {
     openSourceSupportDesc: "Support professionnel et personnalisation pour les solutions open-source",
 
     // Services Page
-    servicesTitle: "Services adaptés à votre feuille de route",
+    servicesTitle: "Diensten afgestemd op uw roadmap",
     servicesHeroSubtitle: "De la preuve de concept au déploiement en production, nous vous guidons à chaque étape",
     servicePillarsTitle: "Nos Piliers de Service",
     servicePillarsSubtitle: "Expertise complète sur le spectre de l'IA et des données",
@@ -783,20 +829,20 @@ export const translations = {
 
     // Products Page
     productsTitle: "Produits & Plateformes",
-    productsHeroSubtitle: "Des SDK OSS aux plateformes d'entreprise",
+    productsHeroSubtitle: "De SDK OSS aux plateformes d'entreprise",
     multiMindSDKTitle: "MultiMindSDK",
     multiMindSDKSubtitle:
-      "Framework UE pour orquestração IA unificada para agentes, ferramentas, memória, workflows e guardrails.",
+      "Framework UE pour orquestração IA unifiée pour agents, ferramentas, mémoire, workflows et garde-fous.",
     dataPipelinesTitle: "Pipelines de Données",
-    dataPipelinesSubtitle: "Pipelines IA & données prontos para empresa para analytics et MLOps.",
-    bigDataSuiteTitle: "Suite Big Data & Governança",
+    dataPipelinesSubtitle: "Pipelines IA & données prontos pour l'entreprise pour l'analytique et MLOps.",
+    bigDataSuiteTitle: "Suite Big Data & Gouvernance",
     bigDataSuiteSubtitle: "Stack big data open-source intégré pour entreprises.",
-    agentsPlatformTitle: "Plataforma MultiminLAB Agents",
-    agentsPlatformSubtitle: "Construtor de agentes sem code pour les ops, ventes et soins.",
+    agentsPlatformTitle: "Plateforme MultimindLAB Agents",
+    agentsPlatformSubtitle: "Construtor de agentes sans code pour les ops, ventes et soins.",
     healiumFrameworkTitle: "Framework de Automação Healium",
-    healiumFrameworkSubtitle: "Plataforma de Automação de Testes de Nova Génération",
-    requestDemo: "Solicitar Demo",
-    getEarlyAccess: "Obter Acesso Antecipado",
+    healiumFrameworkSubtitle: "Plateforme d'Automatisation de Tests de Nouvelle Génération",
+    requestDemo: "Demander une Démo",
+    getEarlyAccess: "Obtenir un Accès Antecipé",
 
     // About Page
     aboutTitle: "À Propos d'Ai2Innovate",
@@ -836,15 +882,15 @@ export const translations = {
 
     businessStrategy: "Stratégie d'Entreprise",
     clientRelations: "Relations Clients",
-    euMarketFocus: "Focus Marché UE",
-    strategicPartnerships: "Partenariats Stratégiques",
-    projectDelivery: "Livraison de Projets",
-    technicalOperations: "Opérations Techniques",
+    euMarketFocus: "Foco no Mercado UE",
+    strategicPartnerships: "Parcerias Estratégicas",
+    projectDelivery: "Entrega de Projetos",
+    technicalOperations: "Opérations Técnicas",
     qualityAssurance: "Assurance Qualité",
     clientSupport: "Support Client",
     aiResearch: "Recherche IA",
-    innovationLabs: "Laboratoires d'Innovation",
-    technicalLeadership: "Leadership Technique",
+    innovationLabs: "Laboratórios de Inovação",
+    technicalLeadership: "Liderança Técnica",
 
     ourCultureDescription:
       "Nous croyons au pouvoir de la collaboration ouverte, de l'apprentissage continu et de l'impact positif par la technologie.",
@@ -875,12 +921,35 @@ export const translations = {
     responseTime: "Nous répondons généralement sous 1-2 jours ouvrables",
     confidentiality: "Toutes les communications sont traitées avec une stricte confidentialité",
 
+    // Contact Form
+    nameLabel: "Nom",
+    emailLabel: "E-mail",
+    companyLabel: "Entreprise",
+    topicLabel: "Sujet",
+    messageLabel: "Message",
+    namePlaceholder: "Votre nom complet",
+    emailPlaceholder: "votre.email@entreprise.com",
+    companyPlaceholder: "Nom de votre entreprise",
+    topicPlaceholder: "Sélectionnez un sujet",
+    messagePlaceholder: "Parlez-nous de votre projet, exigences ou questions...",
+    generalInquiry: "Demande Générale",
+    consultingServices: "Services de Conseil",
+    productInformation: "Informations Produit",
+    technicalSupport: "Support Technique",
+    careers: "Carrières",
+    other: "Autre",
+    sendingMessage: "Envoi en cours...",
+    successMessage: "Merci ! Votre message a été envoyé avec succès. Nous vous recontacterons bientôt.",
+    errorMessage: "Désolé, il y a eu une erreur lors de l'envoi de votre message. Veuillez réessayer ou nous contacter directement.",
+    contactDescription: "Questions sur nos services, informations générales ou discussions de projet",
+    viewWebsite: "Voir le Site Web",
+
     // Products Page - Missing keys
     bigDataSuiteDescription: "Nous implémentons, personnalisons et supportons les meilleurs outils OSS de leur classe.",
     agentsPlatformEarlyAccess:
       "Rejoignez notre programme d'accès anticipé pour être parmi les premiers à découvrir l'avenir de l'automatisation d'agents",
     healiumFrameworkEarlyAccess:
-      "Plateforme révolutionnaire d'automatisation de tests combinant la génération de tests alimentée par IA avec un support multi-plateforme complet",
+      "Plateforme révolutionnaire d'automatisation de tests combinant la génération de tests alimentée par IA avec un support multi-plataforma abrangente",
   },
   pt: {
     // Navigation
@@ -1087,7 +1156,7 @@ export const translations = {
     dataPipelinesSubtitle: "Pipelines IA & dados prontos para empresa para analytics e MLOps.",
     bigDataSuiteTitle: "Suite Big Data & Governança",
     bigDataSuiteSubtitle: "Stack big data open-source integrado para empresas.",
-    agentsPlatformTitle: "Plataforma MultiminLAB Agents",
+    agentsPlatformTitle: "Plataforma MultimindLAB Agents",
     agentsPlatformSubtitle: "Construtor de agentes sem código para ops, vendas e cuidados.",
     healiumFrameworkTitle: "Framework de Automação Healium",
     healiumFrameworkSubtitle: "Plataforma de Automação de Testes de Nova Geração",
@@ -1169,6 +1238,29 @@ export const translations = {
     // Contact Page - Missing keys
     responseTime: "Normalmente respondemos dentro de 1-2 dias úteis",
     confidentiality: "Todas as comunicações são tratadas com estrita confidencialidade",
+
+    // Contact Form
+    nameLabel: "Nome",
+    emailLabel: "E-mail",
+    companyLabel: "Empresa",
+    topicLabel: "Assunto",
+    messageLabel: "Mensagem",
+    namePlaceholder: "Seu nome completo",
+    emailPlaceholder: "seu.email@empresa.com",
+    companyPlaceholder: "Seu nome de empresa",
+    topicPlaceholder: "Selecionar um assunto",
+    messagePlaceholder: "Conte-nos sobre o seu projeto, requisitos ou dúvidas...",
+    generalInquiry: "Inquérito Geral",
+    consultingServices: "Serviços de Consultoria",
+    productInformation: "Informação do Produto",
+    technicalSupport: "Suporte Técnico",
+    careers: "Carreiras",
+    other: "Outro",
+    sendingMessage: "Enviando...",
+    successMessage: "Obrigado! A sua mensagem foi enviada com sucesso. Entraremos em contato em breve.",
+    errorMessage: "Desculpe, houve um erro ao enviar a sua mensagem. Tente novamente ou entre em contato conosco diretamente.",
+    contactDescription: "Questões sobre nossos serviços, informações gerais ou discussões de projetos",
+    viewWebsite: "Ver Website",
 
     // Products Page - Missing keys
     bigDataSuiteDescription: "Implementamos, personalizamos e suportamos as melhores ferramentas OSS da classe.",

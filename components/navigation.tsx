@@ -1,9 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useLanguage } from "@/lib/language-context"
 import { useTheme } from "@/lib/theme-context"
 
@@ -60,8 +59,10 @@ const ChevronDownIcon = () => (
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const { isDark, toggleTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
+  const languageDropdownRef = useRef<HTMLDivElement>(null)
 
   const languages = [
     { code: "en" as const, name: "English", flag: "🇺🇸" },
@@ -71,6 +72,20 @@ export function Navigation() {
   ]
 
   const currentLangDisplay = languages.find((lang) => lang.code === language)?.name || "English"
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+        setIsLanguageDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -112,31 +127,39 @@ export function Navigation() {
             </Link>
 
             <div className="flex items-center space-x-2">
-              {/* <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
-                {isDark ? <SunIcon /> : <MoonIcon />}
-              </Button> */}
-
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                    <GlobeIcon />
-                    <span className="text-sm">{currentLangDisplay}</span>
-                    <ChevronDownIcon />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="min-w-[160px]">
-                  {languages.map((lang) => (
-                    <DropdownMenuItem
-                      key={lang.code}
-                      onClick={() => setLanguage(lang.code)}
-                      className="flex items-center gap-2 cursor-pointer"
-                    >
-                      <span>{lang.flag}</span>
-                      <span>{lang.name}</span>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* Language Dropdown */}
+              <div className="relative" ref={languageDropdownRef}>
+                <button
+                  onClick={() => {
+                    console.log('Language button clicked!');
+                    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground rounded-md hover:bg-accent"
+                >
+                  <GlobeIcon />
+                  <span>{currentLangDisplay}</span>
+                  <ChevronDownIcon />
+                </button>
+                
+                {isLanguageDropdownOpen && (
+                  <div className="absolute right-0 top-full mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          console.log('Language selected:', lang.code);
+                          setLanguage(lang.code);
+                          setIsLanguageDropdownOpen(false);
+                        }}
+                        className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground first:rounded-t-md last:rounded-b-md"
+                      >
+                        <span>{lang.flag}</span>
+                        <span>{lang.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
 
             <Button asChild>
@@ -190,30 +213,40 @@ export function Navigation() {
                   <span className="ml-2">{isDark ? "Light" : "Dark"}</span>
                 </Button>
 
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                      <GlobeIcon />
-                      <span className="text-sm">{currentLangDisplay}</span>
-                      <ChevronDownIcon />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="min-w-[160px]">
-                    {languages.map((lang) => (
-                      <DropdownMenuItem
-                        key={lang.code}
-                        onClick={() => {
-                          setLanguage(lang.code)
-                          setIsOpen(false)
-                        }}
-                        className="flex items-center gap-2 cursor-pointer"
-                      >
-                        <span>{lang.flag}</span>
-                        <span>{lang.name}</span>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                {/* Mobile Language Dropdown */}
+                <div className="relative" ref={languageDropdownRef}>
+                  <button
+                    onClick={() => {
+                      console.log('Mobile language button clicked!');
+                      setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+                    }}
+                    className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground rounded-md hover:bg-accent"
+                  >
+                    <GlobeIcon />
+                    <span>{currentLangDisplay}</span>
+                    <ChevronDownIcon />
+                  </button>
+                  
+                  {isLanguageDropdownOpen && (
+                    <div className="absolute right-0 top-full mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            console.log('Mobile language selected:', lang.code);
+                            setLanguage(lang.code);
+                            setIsLanguageDropdownOpen(false);
+                            setIsOpen(false);
+                          }}
+                          className="w-full flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground first:rounded-t-md last:rounded-b-md"
+                        >
+                          <span>{lang.flag}</span>
+                          <span>{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="px-3 py-2">

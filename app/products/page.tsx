@@ -133,7 +133,7 @@ console.log(response.content)`}
             <div className="order-2 lg:order-1">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {[
-                  { icon: Shield, title: "Standards-Based", desc: "STDM/OMOP compliance" },
+                  { icon: Shield, title: "Standards-Based", desc: "DATA compliance" },
                   { icon: Database, title: "Privacy & Governance", desc: "Built-in data protection" },
                   { icon: BarChart3, title: "Analytics & Dashboards", desc: "Real-time insights" },
                   { icon: Globe, title: "API-First", desc: "RESTful and GraphQL APIs" },

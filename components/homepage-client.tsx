@@ -280,7 +280,7 @@ export function HomePageClient() {
                   </div>
                   <Button variant="outline" className="w-full bg-transparent" asChild>
                     <Link href="https://www.multimind.dev/" target="_blank">
-                      {t("View Website")}
+                      {t("viewWebsite")}
                       <ExternalLink />
                     </Link>
                   </Button>

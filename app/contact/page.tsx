@@ -99,7 +99,7 @@ export default function ContactPage() {
                 icon: Mail,
                 title: t("generalInquiries"),
                 email: "info@ai2innovate.io",
-                description: "Questions about our services, general information, or project discussions",
+                description: t("contactDescription"),
               },
             ].map((contact, index) => (
               <Card key={index} className="border-border/50 bg-gradient-to-br from-card to-card/80 text-center w-full max-w-md">
@@ -135,21 +135,21 @@ export default function ContactPage() {
                 {submitStatus === 'success' && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 text-green-800">
                     <CheckCircle className="h-5 w-5" />
-                    <span>Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+                    <span>{t("successMessage")}</span>
                   </div>
                 )}
                 
                 {submitStatus === 'error' && (
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-800">
                     <AlertCircle className="h-5 w-5" />
-                    <span>Sorry, there was an error sending your message. Please try again or contact us directly.</span>
+                    <span>{t("errorMessage")}</span>
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Name *</Label>
+                      <Label htmlFor="name">{t("nameLabel")} *</Label>
                       <Input
                         id="name"
                         name="name"
@@ -157,11 +157,11 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
-                        placeholder="Your full name"
+                        placeholder={t("namePlaceholder")}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="email">{t("emailLabel")} *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -169,43 +169,43 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="your.email@company.com"
+                        placeholder={t("emailPlaceholder")}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
+                    <Label htmlFor="company">{t("companyLabel")}</Label>
                     <Input
                       id="company"
                       name="company"
                       type="text"
                       value={formData.company}
                       onChange={(e) => handleInputChange("company", e.target.value)}
-                      placeholder="Your company name"
+                      placeholder={t("companyPlaceholder")}
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="topic">Topic *</Label>
+                    <Label htmlFor="topic">{t("topicLabel")} *</Label>
                     <Select value={formData.topic} onValueChange={(value) => handleInputChange("topic", value)}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select a topic" />
+                        <SelectValue placeholder={t("topicPlaceholder")} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="general">General Inquiry</SelectItem>
-                        <SelectItem value="consulting">Consulting Services</SelectItem>
-                        <SelectItem value="products">Product Information</SelectItem>
-                        <SelectItem value="partnerships">Partnerships</SelectItem>
-                        <SelectItem value="support">Technical Support</SelectItem>
-                        <SelectItem value="careers">Careers</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
+                        <SelectItem value="general">{t("generalInquiry")}</SelectItem>
+                        <SelectItem value="consulting">{t("consultingServices")}</SelectItem>
+                        <SelectItem value="products">{t("productInformation")}</SelectItem>
+                        <SelectItem value="partnerships">{t("partnerships")}</SelectItem>
+                        <SelectItem value="support">{t("technicalSupport")}</SelectItem>
+                        <SelectItem value="careers">{t("careers")}</SelectItem>
+                        <SelectItem value="other">{t("other")}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message">{t("messageLabel")} *</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -213,13 +213,13 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={(e) => handleInputChange("message", e.target.value)}
-                      placeholder="Tell us about your project, requirements, or questions..."
+                      placeholder={t("messagePlaceholder")}
                     />
                   </div>
 
                   <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     <Send className="mr-2 h-4 w-4" />
-                    {isSubmitting ? "Sending..." : t("sendMessage")}
+                    {isSubmitting ? t("sendingMessage") : t("sendMessage")}
                   </Button>
                 </form>
               </CardContent>
