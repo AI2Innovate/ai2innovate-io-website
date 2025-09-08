@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Mail, MapPin, Clock, Send, Building2, Handshake, HeadphonesIcon } from "lucide-react"
+import { Mail, MapPin, Clock, Send, Building2, Handshake, HeadphonesIcon, CheckCircle, AlertCircle } from "lucide-react"
 
 export default function ContactPage() {
   const { t } = useLanguage()
@@ -21,11 +21,49 @@ export default function ContactPage() {
     topic: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('https://formspree.io/f/xqadwvzr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          topic: formData.topic,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: `Contact Form: ${formData.topic || 'General Inquiry'} from ${formData.name}`,
+        }),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          topic: "",
+          message: "",
+        })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string) => {
@@ -55,28 +93,16 @@ export default function ContactPage() {
             <p className="mt-4 text-lg text-muted-foreground">{t("getInTouchSubtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 mb-16">
+          <div className="flex justify-center mb-16">
             {[
               {
                 icon: Mail,
                 title: t("generalInquiries"),
-                email: "hello@ai2innovate.io",
+                email: "info@ai2innovate.io",
                 description: "Questions about our services, general information, or project discussions",
               },
-              {
-                icon: Handshake,
-                title: t("partnerships"),
-                email: "partnerships@ai2innovate.io",
-                description: "Strategic partnerships, integrations, and collaboration opportunities",
-              },
-              {
-                icon: HeadphonesIcon,
-                title: t("support"),
-                email: "support@ai2innovate.io",
-                description: "Technical support for our products and existing client assistance",
-              },
             ].map((contact, index) => (
-              <Card key={index} className="border-border/50 bg-gradient-to-br from-card to-card/80 text-center">
+              <Card key={index} className="border-border/50 bg-gradient-to-br from-card to-card/80 text-center w-full max-w-md">
                 <CardHeader>
                   <contact.icon className="h-8 w-8 text-primary mx-auto mb-3" />
                   <CardTitle className="text-lg">{contact.title}</CardTitle>
@@ -106,12 +132,27 @@ export default function ContactPage() {
                 <CardDescription>{t("sendMessageSubtitle")}</CardDescription>
               </CardHeader>
               <CardContent>
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 text-green-800">
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-red-800">
+                    <AlertCircle className="h-5 w-5" />
+                    <span>Sorry, there was an error sending your message. Please try again or contact us directly.</span>
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name *</Label>
                       <Input
                         id="name"
+                        name="name"
                         type="text"
                         required
                         value={formData.name}
@@ -123,6 +164,7 @@ export default function ContactPage() {
                       <Label htmlFor="email">Email *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         required
                         value={formData.email}
@@ -136,6 +178,7 @@ export default function ContactPage() {
                     <Label htmlFor="company">Company</Label>
                     <Input
                       id="company"
+                      name="company"
                       type="text"
                       value={formData.company}
                       onChange={(e) => handleInputChange("company", e.target.value)}
@@ -165,6 +208,7 @@ export default function ContactPage() {
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
+                      name="message"
                       required
                       rows={6}
                       value={formData.message}
@@ -173,9 +217,9 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     <Send className="mr-2 h-4 w-4" />
-                    {t("sendMessage")}
+                    {isSubmitting ? "Sending..." : t("sendMessage")}
                   </Button>
                 </form>
               </CardContent>
@@ -185,7 +229,7 @@ export default function ContactPage() {
       </section>
 
       {/* Office Locations */}
-      <section className="py-24 sm:py-32">
+      {/* <section className="py-24 sm:py-32">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <MapPin className="h-12 w-12 text-accent mx-auto mb-6" />
@@ -236,7 +280,7 @@ export default function ContactPage() {
             <p className="text-xs text-muted-foreground">{t("confidentiality")}</p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

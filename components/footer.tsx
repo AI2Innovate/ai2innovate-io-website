@@ -35,10 +35,10 @@ export function Footer() {
               Innovating AI, Data & Embedded Systems for a Smarter Tomorrow
             </p>
             <div className="text-xs text-muted-foreground space-y-1">
-              <p>Ai2Innovate SRL (Belgium HQ)</p>
+              {/* <p>Ai2Innovate SRL (Belgium HQ)</p>
               <p>Mozayc s.r.o. (Slovakia Ops)</p>
-              <p>Portugal Criativo LDA (Portugal R&D)</p>
-              <p className="mt-2">© 2024 Ai2Innovate. All rights reserved.</p>
+              <p>Portugal Criativo LDA (Portugal R&D)</p> */}
+              <p className="mt-2">© 2025 Ai2Innovate. All rights reserved.</p>
             </div>
           </div>
 
@@ -52,13 +52,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/clients" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Clients
+                <Link href="/products" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Products  
                 </Link>
               </li>
               <li>
-                <Link href="/open-source" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Open Source
+                <Link href="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Services
                 </Link>
               </li>
               <li>
@@ -75,26 +75,10 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="mailto:hello@ai2innovate.io"
+                  href="mailto:info@ai2innovate.io"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hello@ai2innovate.io
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:partnerships@ai2innovate.io"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  partnerships@ai2innovate.io
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:support@ai2innovate.io"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  support@ai2innovate.io
+                  info@ai2innovate.io
                 </a>
               </li>
             </ul>
@@ -154,7 +138,7 @@ export function Footer() {
                 <span className="sr-only">Twitter</span>
               </a>
             </div>
-            <p className="text-xs text-muted-foreground">HQ Belgium • Operations Slovakia • R&D Portugal</p>
+            {/* <p className="text-xs text-muted-foreground">HQ Belgium • Operations Slovakia • R&D Portugal</p> */}
           </div>
         </div>
       </div>

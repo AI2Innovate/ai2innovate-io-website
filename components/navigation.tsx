@@ -112,9 +112,9 @@ export function Navigation() {
             </Link>
 
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
+              {/* <Button variant="ghost" size="sm" onClick={toggleTheme} aria-label="Toggle theme">
                 {isDark ? <SunIcon /> : <MoonIcon />}
-              </Button>
+              </Button> */}
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>

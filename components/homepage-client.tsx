@@ -166,7 +166,7 @@ export function HomePageClient() {
                 <Link href="/products">{t("exploreProducts")}</Link>
               </Button>
             </div>
-            <p className="mt-8 text-sm text-muted-foreground">{t("heroLocation")}</p>
+            {/* <p className="mt-8 text-sm text-muted-foreground">{t("heroLocation")}</p> */}
           </div>
         </div>
       </section>
@@ -207,7 +207,7 @@ export function HomePageClient() {
                     </Badge>
                   </div>
                   <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <Link href="https://github.com/ai2innovate/multimind-sdk" target="_blank">
+                    <Link href="https://github.com/multimindlab/multimind-sdk" target="_blank">
                       {t("viewGitHub")}
                       <ExternalLink />
                     </Link>
@@ -323,14 +323,13 @@ export function HomePageClient() {
       </section>
 
       {/* Clients Section */}
-      <section className="py-24 sm:py-32">
+      {/* <section className="py-24 sm:py-32">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{t("trustedBy")}</h2>
             <p className="mt-4 text-muted-foreground">{t("clientsSubtitle")}</p>
           </div>
           <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {/* Placeholder logos */}
             {[1, 2, 3, 4, 5].map((i) => (
               <div key={i} className="flex h-16 items-center justify-center rounded-lg bg-muted/20 px-4">
                 <div className="text-sm font-medium text-muted-foreground">Client Logo {i}</div>
@@ -338,7 +337,7 @@ export function HomePageClient() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Open Source Callout */}
       <section className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 py-24 sm:py-32">
@@ -348,7 +347,7 @@ export function HomePageClient() {
             <p className="mt-4 text-lg text-muted-foreground">{t("openSourceSubtitle")}</p>
             <div className="mt-8">
               <Button size="lg" variant="outline" asChild>
-                <Link href="/open-source">
+                <Link href="https://github.com/multimindlab/multimind-sdk" target="_blank">
                   {t("browseGitHub")}
                   <Github />
                 </Link>

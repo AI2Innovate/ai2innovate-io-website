@@ -71,7 +71,7 @@ export default function AboutPage() {
       </section>
 
       {/* Global Footprint */}
-      <section className="bg-card/30 py-24 sm:py-32">
+      {/* <section className="bg-card/30 py-24 sm:py-32">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
             <Globe className="h-12 w-12 text-accent mx-auto mb-6" />
@@ -140,10 +140,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Culture Section */}
-      <section className="py-24 sm:py-32">
+      <section className="bg-card/30 py-24 sm:py-32">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="flex items-center justify-center gap-2 mb-6">
@@ -159,9 +159,9 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-12">
               {[
                 { label: t("openSourceProjects"), value: "15+" },
-                { label: t("countriesServed"), value: "12+" },
+                { label: t("countriesServed"), value: "15+" },
                 { label: t("teamMembers"), value: "25+" },
-                { label: t("yearsOfExperience"), value: "10+" },
+                { label: t("yearsOfExperience"), value: "20+" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
