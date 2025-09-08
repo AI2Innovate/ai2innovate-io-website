@@ -77,23 +77,23 @@ export default function ProductsPage() {
 
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button size="lg" asChild>
-                  <Link href="https://github.com/ai2innovate/multimind-sdk" target="_blank">
+                  <Link href="https://github.com/multimindlab/multimind-sdk" target="_blank">
                     <Github className="mr-2 h-4 w-4" />
                     GitHub
                   </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <Link href="https://docs.multimind.ai" target="_blank">
-                    Documentation
+                  <Link href="https://www.multimind.dev/" target="_blank">
+                    Website
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                {/* <Button variant="outline" size="lg" asChild>
                   <Link href="/contact?interest=multimind-support">
                     Get Support
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
-                </Button>
+                </Button> */}
               </div>
             </div>
 

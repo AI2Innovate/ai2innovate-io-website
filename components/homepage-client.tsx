@@ -234,7 +234,7 @@ export function HomePageClient() {
                 <div className="space-y-3">
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="outline" className="text-xs">
-                      STDM/OMOP
+                      Data Processing
                     </Badge>
                     <Badge variant="outline" className="text-xs">
                       Privacy & Governance
@@ -262,7 +262,7 @@ export function HomePageClient() {
                   </Badge>
                   <Bot />
                 </div>
-                <CardTitle className="text-xl">Ai2Innovate Agents Platform</CardTitle>
+                <CardTitle className="text-xl">MultiMindLab Agents Platform</CardTitle>
                 <CardDescription>No-code agent builder for sales, healthcare, and support automations.</CardDescription>
               </CardHeader>
               <CardContent>
@@ -279,9 +279,9 @@ export function HomePageClient() {
                     </Badge>
                   </div>
                   <Button variant="outline" className="w-full bg-transparent" asChild>
-                    <Link href="/contact?interest=agents-platform">
-                      {t("getNotified")}
-                      <Bell />
+                    <Link href="https://www.multimind.dev/" target="_blank">
+                      {t("View Website")}
+                      <ExternalLink />
                     </Link>
                   </Button>
                 </div>
