@@ -26,8 +26,8 @@ export function Footer() {
             <Image
               src="/logo.png"
               alt="AI2INNOVATE.IO"
-              width={160}
-              height={80}
+              width={150}
+              height={100}
               className="h-16 w-auto mb-4 mx-auto md:mx-0"
             />
             <p className="text-base leading-relaxed text-primary-foreground/80 max-w-md mx-auto md:mx-0">

@@ -262,9 +262,9 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       service3Title: "E-commerce & Digital Sales Enablement",
       service3Description:
         "Build, launch, and scale your online store with ease. We create seamless shopping experiences that turn visitors into loyal customers and drive revenue growth.",
-      service4Title: "Data Security & Cloud Transformation",
+      service4Title: "Cybersecurity & Cloud Transformation",
       service4Description:
-        "Protect your business with enterprise-grade security while migrating to modern cloud infrastructure. Safe, secure, and scalable technology for peace of mind.",
+        "Defend your business with DFIR, ransomware containment, and forensic investigation—powered by cyberxdefend.com. Migrate to modern cloud infrastructure safely, with enterprise-grade security built in.",
     },
     industries: {
       badge: "Industries We Serve",
@@ -348,9 +348,9 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       service3Title: "E-commerce et Activation des Ventes Digitales",
       service3Description:
         "Construisez, lancez et développez votre boutique en ligne facilement. Nous créons des expériences d'achat fluides qui transforment les visiteurs en clients fidèles et stimulent la croissance du chiffre d'affaires.",
-      service4Title: "Sécurité des Données et Transformation Cloud",
+      service4Title: "Cybersécurité et Transformation Cloud",
       service4Description:
-        "Protégez votre entreprise avec une sécurité de niveau entreprise tout en migrant vers une infrastructure cloud moderne. Technologie sûre, sécurisée et évolutive pour votre tranquillité d'esprit.",
+        "Défendez votre entreprise avec DFIR, confinement des ransomwares et investigation forensique—propulsé par cyberxdefend.com. Migrez vers une infrastructure cloud moderne en toute sécurité, avec une sécurité de niveau entreprise intégrée.",
     },
     industries: {
       badge: "Industries que Nous Servons",
@@ -435,9 +435,9 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       service3Title: "E-Commerce & Digitale Vertriebsunterstützung",
       service3Description:
         "Bauen, starten und skalieren Sie Ihren Online-Shop mit Leichtigkeit. Wir schaffen nahtlose Einkaufserlebnisse, die Besucher in treue Kunden verwandeln und das Umsatzwachstum fördern.",
-      service4Title: "Datensicherheit & Cloud-Transformation",
+      service4Title: "Cybersicherheit & Cloud-Transformation",
       service4Description:
-        "Schützen Sie Ihr Unternehmen mit Sicherheit auf Unternehmensniveau, während Sie auf moderne Cloud-Infrastruktur migrieren. Sichere, geschützte und skalierbare Technologie für Ihren Seelenfrieden.",
+        "Verteidigen Sie Ihr Unternehmen mit DFIR, Ransomware-Eindämmung und forensischer Untersuchung—powered by cyberxdefend.com. Migrieren Sie sicher auf moderne Cloud-Infrastruktur mit integrierter Sicherheit auf Unternehmensniveau.",
     },
     industries: {
       badge: "Branchen, die Wir Bedienen",
@@ -522,9 +522,9 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       service3Title: "E-commerce & Digitale Verkoopactivering",
       service3Description:
         "Bouw, lanceer en schaal uw online winkel met gemak. We creëren naadloze winkelervaringen die bezoekers omzetten in loyale klanten en omzetgroei stimuleren.",
-      service4Title: "Databeveiliging & Cloud Transformatie",
+      service4Title: "Cybersecurity & Cloud Transformatie",
       service4Description:
-        "Bescherm uw bedrijf met beveiliging op ondernemingsniveau terwijl u migreert naar moderne cloud-infrastructuur. Veilige, beveiligde en schaalbare technologie voor gemoedsrust.",
+        "Verdedig uw bedrijf met DFIR, ransomware-bestrijding en forensisch onderzoek—aangedreven door cyberxdefend.com. Migreer veilig naar moderne cloud-infrastructuur met ingebouwde beveiliging op ondernemingsniveau.",
     },
     industries: {
       badge: "Sectoren Die Wij Bedienen",
@@ -609,9 +609,9 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       service3Title: "E-commerce & Aktivácia Digitálneho Predaja",
       service3Description:
         "Vytvorte, spustite a škálujte svoj online obchod s ľahkosťou. Vytvárame bezproblémové nákupné zážitky, ktoré menia návštevníkov na verných zákazníkov a podporujú rast príjmov.",
-      service4Title: "Bezpečnosť Dát & Cloud Transformácia",
+      service4Title: "Kybernetická Bezpečnosť & Cloud Transformácia",
       service4Description:
-        "Chráňte svoje podnikanie bezpečnosťou podnikovej úrovne pri migrácii na modernú cloudovú infraštruktúru. Bezpečná, chránená a škálovateľná technológia pre váš pokoj.",
+        "Chráňte svoje podnikanie pomocou DFIR, zvládnutia ransomvéru a forenzného vyšetrovania—poháňané cyberxdefend.com. Migrujte na modernú cloudovú infraštruktúru bezpečne, s integrovanou bezpečnosťou podnikovej úrovne.",
     },
     industries: {
       badge: "Odvetvia, Ktoré Obsluhujeme",

@@ -27,7 +27,6 @@ export function Navigation() {
     { name: t.services, href: "#services" },
     { name: t.industries, href: "#industries" },
     { name: t.whyUs, href: "#why-us" },
-    { name: t.caseStudies, href: "#case-studies" },
     { name: t.contact, href: "#contact" },
   ]
 
@@ -42,7 +41,14 @@ export function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/">
-              <Image src="/logo.png" alt="AI2INNOVATE.IO" width={140} height={60} className="h-12 w-auto" priority />
+              <Image
+                src="/logo.png"
+                alt="AI2INNOVATE.IO"
+                width={150}
+                height={100}
+                className="h-10 w-auto md:h-12"
+                priority
+              />
             </a>
           </div>
 
