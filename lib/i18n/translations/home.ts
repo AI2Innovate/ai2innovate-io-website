@@ -113,6 +113,16 @@ export interface HomeTranslations {
     government: string
     defence: string
   }
+  solutions: {
+    badge: string
+    title: string
+    subtitle: string
+    cyberxdefendDescription: string
+    shopmuseDescription: string
+    chainfoundryDescription: string
+    multimindDescription: string
+    dbabridgeDescription: string
+  }
   whyUs: {
     badge: string
     title: string
@@ -237,18 +247,18 @@ export interface HomeTranslations {
 
 export const homeTranslations: Record<Language, HomeTranslations> = {
   en: {
-  hero: {
-    badge: "AI-Powered Business Solutions",
-    title: "AI-Powered Innovation",
-    titleHighlight: "for Businesses",
-    subtitle: "Consulting, Automation, Digital Commerce & Security  to scale your business faster",
-    ctaPrimary: "Book a Free Strategy Call",
-    ctaSecondary: "Explore Services",
-    trust1: "Certified Professionals",
-    trust2: "Proven Results",
-    trust3: "No Hidden Costs",
-    trust4: "Safe & Local AI Specialists",
-  },
+    hero: {
+      badge: "AI-Powered Business Solutions",
+      title: "AI-Powered Innovation",
+      titleHighlight: "for Businesses",
+      subtitle: "Consulting, Automation, Digital Commerce & Security  to scale your business faster",
+      ctaPrimary: "Book a Free Strategy Call",
+      ctaSecondary: "Explore Services",
+      trust1: "Certified Professionals",
+      trust2: "Proven Results",
+      trust3: "No Hidden Costs",
+      trust4: "Safe & Local AI Specialists",
+    },
     services: {
       badge: "What We Do",
       title: "Our Services",
@@ -276,6 +286,21 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       manufacturing: "Manufacturing",
       technology: "Technology",
       professional: "Professional Services",
+    },
+    solutions: {
+      badge: "Solutions",
+      title: "Products and Platforms We Build",
+      subtitle:
+        "Explore our portfolio of practical solutions designed for data, security, blockchain, and intelligent automation.",
+      cyberxdefendDescription:
+        "DFIR platform for ransomware containment and forensic investigation.",
+      shopmuseDescription:
+        "AI-powered storefront builder that turns product catalogs into high-converting shops.",
+      chainfoundryDescription:
+        "One Rust toolkit to decode, transport, and index data across 7 blockchain families.",
+      multimindDescription: "Open-source SDK for building multi-agent LLM workflows in Python.",
+      dbabridgeDescription:
+        "Hybrid Java+Rust migration tool to move SQL, NoSQL, and vector databases without downtime.",
     },
     whyUs: {
       badge: "Why Choose Us",
@@ -362,6 +387,21 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       manufacturing: "Fabrication",
       technology: "Technologie",
       professional: "Services Professionnels",
+    },
+    solutions: {
+      badge: "Solutions",
+      title: "Produits et plateformes que nous construisons",
+      subtitle:
+        "Découvrez notre portefeuille de solutions pratiques pour les données, la sécurité, la blockchain et l'automatisation intelligente.",
+      cyberxdefendDescription:
+        "Plateforme DFIR pour le confinement des ransomwares et les investigations forensiques.",
+      shopmuseDescription:
+        "Créateur de vitrines IA qui transforme les catalogues produits en boutiques à forte conversion.",
+      chainfoundryDescription:
+        "Boîte à outils Rust unique pour décoder, transporter et indexer des données sur 7 familles de blockchains.",
+      multimindDescription: "SDK open source pour créer des workflows LLM multi-agents en Python.",
+      dbabridgeDescription:
+        "Outil de migration hybride Java+Rust pour déplacer SQL, NoSQL et bases vectorielles sans interruption.",
     },
     whyUs: {
       badge: "Pourquoi Nous Choisir",
@@ -450,6 +490,21 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       technology: "Technologie",
       professional: "Professionelle Dienstleistungen",
     },
+    solutions: {
+      badge: "Lösungen",
+      title: "Produkte und Plattformen, die wir entwickeln",
+      subtitle:
+        "Entdecken Sie unser Portfolio praxisnaher Lösungen für Daten, Sicherheit, Blockchain und intelligente Automatisierung.",
+      cyberxdefendDescription:
+        "DFIR-Plattform für Ransomware-Eindämmung und forensische Untersuchungen.",
+      shopmuseDescription:
+        "KI-gestützter Shop-Builder, der Produktkataloge in umsatzstarke Online-Shops verwandelt.",
+      chainfoundryDescription:
+        "Ein Rust-Toolkit zum Dekodieren, Transportieren und Indizieren von Daten über 7 Blockchain-Familien.",
+      multimindDescription: "Open-Source-SDK zum Aufbau von Multi-Agent-LLM-Workflows in Python.",
+      dbabridgeDescription:
+        "Hybrides Java+Rust-Migrationstool für SQL-, NoSQL- und Vektordatenbanken ohne Ausfallzeit.",
+    },
     whyUs: {
       badge: "Warum Uns Wählen",
       title: "Partner mit Vertrauen",
@@ -537,6 +592,21 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       technology: "Technologie",
       professional: "Professionele Diensten",
     },
+    solutions: {
+      badge: "Oplossingen",
+      title: "Producten en platformen die wij bouwen",
+      subtitle:
+        "Ontdek ons portfolio van praktische oplossingen voor data, security, blockchain en intelligente automatisering.",
+      cyberxdefendDescription:
+        "DFIR-platform voor ransomware-inperking en forensisch onderzoek.",
+      shopmuseDescription:
+        "AI-gestuurde winkelbouwer die productcatalogi omzet in webshops met hoge conversie.",
+      chainfoundryDescription:
+        "Eén Rust-toolkit om data te decoderen, transporteren en indexeren over 7 blockchain-families.",
+      multimindDescription: "Open-source SDK voor multi-agent LLM-workflows in Python.",
+      dbabridgeDescription:
+        "Hybride Java+Rust-migratietool om SQL-, NoSQL- en vectordatabases zonder downtime te verplaatsen.",
+    },
     whyUs: {
       badge: "Waarom Ons Kiezen",
       title: "Partner met Vertrouwen",
@@ -623,6 +693,21 @@ export const homeTranslations: Record<Language, HomeTranslations> = {
       manufacturing: "Výroba",
       technology: "Technológie",
       professional: "Profesionálne Služby",
+    },
+    solutions: {
+      badge: "Riešenia",
+      title: "Produkty a platformy, ktoré vytvárame",
+      subtitle:
+        "Preskúmajte náš portfólio praktických riešení pre dáta, bezpečnosť, blockchain a inteligentnú automatizáciu.",
+      cyberxdefendDescription:
+        "DFIR platforma na zadržanie ransomvéru a forenzné vyšetrovanie.",
+      shopmuseDescription:
+        "AI tvorca e-shopov, ktorý mení produktové katalógy na obchody s vysokou konverziou.",
+      chainfoundryDescription:
+        "Jedna Rust sada nástrojov na dekódovanie, prenos a indexovanie dát naprieč 7 rodinami blockchainov.",
+      multimindDescription: "Open-source SDK na tvorbu multi-agent LLM workflowov v Pythone.",
+      dbabridgeDescription:
+        "Hybridný migračný nástroj Java+Rust na presun SQL, NoSQL a vektorových databáz bez výpadku.",
     },
     whyUs: {
       badge: "Prečo Nás Vybrať",
