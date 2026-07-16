@@ -16,9 +16,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "AI2INNOVATE.IO - Your Gateway to AI-Powered Business Solutions",
+  title: "AI2INNOVATE — Innovation Is in Our DNA",
   description:
-    "Transform your business with expert IT consulting, AI solutions, e-commerce, and business consulting. We make technology work for you.",
+    "AI consulting, automation, digital commerce and cybersecurity. AI2Innovate engineers the technology genome of your business.",
   generator: "v0.app",
   icons: {
     icon: [{ url: "/logo.png", type: "image/png" }],

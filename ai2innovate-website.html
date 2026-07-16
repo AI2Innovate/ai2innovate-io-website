@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI2INNOVATE — Innovation Is in Our DNA</title>
+<meta name="description" content="AI consulting, automation, digital commerce and cybersecurity. AI2Innovate engineers the technology genome of your business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#070B16;
+  --ink-2:#0B1222;
+  --strand-a:#3EE6C1;   /* cyan-mint — strand A */
+  --strand-b:#8B7CFF;   /* violet — strand B */
+  --amber:#FFB454;      /* CTA accent */
+  --paper:#EAF0FA;
+  --mute:#8B97AE;
+  --line:rgba(139,151,174,.18);
+  --card:rgba(13,20,38,.62);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+::selection{background:var(--strand-a);color:var(--ink)}
+
+/* ---------- DNA canvas ---------- */
+#dna{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+.vignette{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(7,11,22,.55) 100%),
+    linear-gradient(to bottom, rgba(7,11,22,.35), transparent 18%, transparent 82%, rgba(7,11,22,.5));
+}
+
+/* ---------- layout ---------- */
+main{position:relative;z-index:2}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:130px 0}
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--strand-a);
+  display:flex;align-items:center;gap:14px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--strand-a);opacity:.6}
+.eyebrow .seq{color:var(--mute);letter-spacing:.14em}
+
+h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800;line-height:1.05}
+h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700;line-height:1.12;max-width:18ch}
+h3{font-size:1.18rem;font-weight:600}
+.lede{color:var(--mute);font-size:1.1rem;max-width:56ch;margin-top:18px;font-weight:300}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(7,11,22,.55);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;color:var(--paper);text-decoration:none;letter-spacing:-.01em}
+.logo b{color:var(--strand-a)}
+.logo .io{color:var(--strand-b)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--mute);text-decoration:none;font-size:.92rem;font-weight:400;transition:color .2s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--paper)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem;
+  padding:13px 26px;border-radius:100px;text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+  cursor:pointer;border:none;
+}
+.btn:focus-visible{outline:2px solid var(--strand-a);outline-offset:3px}
+.btn-amber{background:var(--amber);color:#1A1206}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(255,180,84,.32)}
+.btn-ghost{border:1px solid var(--line);color:var(--paper);background:transparent}
+.btn-ghost:hover{border-color:var(--strand-a);color:var(--strand-a)}
+.nav-cta{padding:10px 20px;font-size:.86rem}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 0 110px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center}
+.hero h1 .a{color:var(--strand-a)}
+.hero h1 .b{color:var(--strand-b)}
+.hero-ctas{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.gene-ticker{
+  margin-top:60px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+  color:var(--mute);letter-spacing:.18em;display:flex;gap:26px;flex-wrap:wrap;
+}
+.gene-ticker span b{color:var(--strand-a);font-weight:500}
+.gene-ticker span:nth-child(even) b{color:var(--strand-b)}
+
+/* ---------- gene cards (services) ---------- */
+.genes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:60px}
+.gene{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:34px 32px 30px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s;
+  overflow:hidden;
+}
+.gene::after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(var(--gc,var(--strand-a)), transparent);
+  opacity:.85;
+}
+.gene:hover{transform:translateY(-6px);border-color:var(--gc,var(--strand-a))}
+.gene .code{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.2em;
+  color:var(--gc,var(--strand-a));margin-bottom:16px;display:block;
+}
+.gene p{color:var(--mute);font-size:.96rem;margin-top:12px}
+.gene .pairs{
+  position:absolute;right:22px;top:26px;display:flex;flex-direction:column;gap:5px;opacity:.85;
+}
+.gene .pairs i{display:block;height:2px;border-radius:2px;background:var(--gc,var(--strand-a));transition:width .4s}
+.gene .pairs i:nth-child(1){width:26px}
+.gene .pairs i:nth-child(2){width:16px;opacity:.6}
+.gene .pairs i:nth-child(3){width:32px;opacity:.35}
+.gene:hover .pairs i{width:38px}
+
+/* ---------- industries (codon strip) ---------- */
+.codons{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.codon{
+  border:1px solid var(--line);border-radius:14px;padding:24px 24px 22px;
+  background:rgba(11,18,34,.5);backdrop-filter:blur(8px);
+  transition:border-color .3s, transform .3s;
+}
+.codon:hover{border-color:var(--strand-b);transform:translateY(-4px)}
+.codon .tag{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.22em;
+  color:var(--strand-b);display:block;margin-bottom:10px;
+}
+.codon p{color:var(--mute);font-size:.9rem;margin-top:6px}
+
+/* ---------- solutions (expressed strand) ---------- */
+.strand-list{margin-top:64px;position:relative}
+.strand-list::before{
+  content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(var(--strand-a), var(--strand-b));opacity:.45;border-radius:2px;
+}
+.product{
+  position:relative;display:grid;grid-template-columns:56px 220px 1fr auto;gap:18px;
+  align-items:center;padding:30px 26px 30px 0;border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+.product:hover{background:rgba(62,230,193,.04)}
+.product .node{
+  width:28px;height:28px;border-radius:50%;
+  border:2px solid var(--pc,var(--strand-a));
+  background:var(--ink);position:relative;z-index:1;margin-left:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.product .node::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--pc,var(--strand-a));animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.55);opacity:.5}}
+.product a.name{
+  font-family:'Sora',sans-serif;font-weight:600;font-size:1.06rem;
+  color:var(--paper);text-decoration:none;transition:color .2s;
+}
+.product a.name:hover{color:var(--pc,var(--strand-a))}
+.product .desc{color:var(--mute);font-size:.95rem}
+.product .arrow{
+  font-family:'IBM Plex Mono',monospace;color:var(--pc,var(--strand-a));
+  font-size:.85rem;opacity:0;transform:translateX(-8px);transition:all .3s;white-space:nowrap;
+}
+.product:hover .arrow{opacity:1;transform:translateX(0)}
+
+/* ---------- why us ---------- */
+.helix-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+.stat{
+  border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px;
+  background:var(--card);backdrop-filter:blur(10px);
+}
+.stat h3{margin-bottom:12px}
+.stat h3 span{color:var(--strand-a);font-family:'IBM Plex Mono',monospace;font-size:.78rem;display:block;letter-spacing:.2em;margin-bottom:14px;font-weight:400}
+.stat:nth-child(2) h3 span{color:var(--strand-b)}
+.stat:nth-child(3) h3 span{color:var(--amber)}
+.stat p{color:var(--mute);font-size:.95rem}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  border:1px solid var(--line);border-radius:26px;
+  background:linear-gradient(135deg, rgba(62,230,193,.08), rgba(139,124,255,.08));
+  backdrop-filter:blur(12px);
+  padding:70px 60px;text-align:center;
+}
+.cta-band h2{margin:0 auto 14px;max-width:24ch}
+.cta-band .lede{margin:0 auto 36px}
+.cta-perks{display:flex;gap:28px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.cta-perks span{font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.16em;color:var(--mute)}
+.cta-perks span::before{content:"●";color:var(--strand-a);margin-right:9px;font-size:.6rem;vertical-align:1px}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:56px}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.field input,.field textarea{
+  width:100%;background:rgba(11,18,34,.6);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;color:var(--paper);font-family:'IBM Plex Sans',sans-serif;font-size:.96rem;
+  transition:border-color .2s;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--strand-a)}
+.field textarea{min-height:130px;resize:vertical}
+.contact-side h3{margin-bottom:14px}
+.contact-side p{color:var(--mute);margin-bottom:26px}
+.mail-link{
+  font-family:'IBM Plex Mono',monospace;color:var(--strand-a);text-decoration:none;
+  font-size:1.02rem;border-bottom:1px solid transparent;transition:border-color .2s;
+}
+.mail-link:hover{border-color:var(--strand-a)}
+.socials{margin-top:34px;display:flex;gap:18px}
+.socials a{color:var(--mute);text-decoration:none;font-size:.9rem;border:1px solid var(--line);padding:9px 18px;border-radius:100px;transition:all .2s}
+.socials a:hover{color:var(--paper);border-color:var(--strand-b)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:54px 0 40px;position:relative;z-index:2;background:rgba(7,11,22,.7);backdrop-filter:blur(10px)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot-grid h4{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:18px;font-weight:500}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:10px}
+.foot-grid a,.foot-grid span{color:var(--mute);text-decoration:none;font-size:.9rem;transition:color .2s}
+.foot-grid a:hover{color:var(--strand-a)}
+.foot-brand p{color:var(--mute);font-size:.9rem;margin-top:14px;max-width:34ch}
+.copyright{margin-top:46px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--mute);font-size:.82rem;flex-wrap:wrap;gap:10px}
+.copyright .seq{font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;font-size:.72rem}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.4s}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .genes,.helix-stats,.contact-grid{grid-template-columns:1fr}
+  .codons{grid-template-columns:repeat(2,1fr)}
+  .product{grid-template-columns:44px 1fr;grid-template-rows:auto auto;row-gap:8px}
+  .product .desc{grid-column:2}
+  .product .arrow{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-links a:not(.btn){display:none}
+  .cta-band{padding:50px 26px}
+  section{padding:90px 0}
+}
+@media (max-width:560px){
+  .codons{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .product .node::after{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<canvas id="dna" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top">AI<b>2</b>INNOVATE<span class="io">.IO</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact" class="btn btn-amber nav-cta">Book a Free Call</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow reveal"><span class="seq">SEQ 00 · ORIGIN</span></div>
+        <h1 class="reveal d1">Innovation is in<br>our <span class="a">D</span><span class="b">N</span><span class="a">A</span>.</h1>
+        <p class="lede reveal d2">AI consulting, automation, digital commerce and cybersecurity — engineered into the genome of your business so it scales faster, runs leaner, and stays secure.</p>
+        <div class="hero-ctas reveal d3">
+          <a class="btn btn-amber" href="#contact">Book a Free Strategy Call</a>
+          <a class="btn btn-ghost" href="#services">Explore the strands ↓</a>
+        </div>
+        <div class="gene-ticker reveal d4">
+          <span><b>A</b> · AI &amp; AUTOMATION</span>
+          <span><b>T</b> · TALENT &amp; IT</span>
+          <span><b>C</b> · COMMERCE</span>
+          <span><b>G</b> · GUARD / CYBER</span>
+        </div>
+      </div>
+      <div><!-- helix lives in the fixed canvas behind --></div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" data-color="#3EE6C1">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="seq">SEQ 01</span> What we do</div>
+      <h2 class="reveal d1">Four strands. One genome for growth.</h2>
+      <p class="lede reveal d2">Every engagement maps to one of four core strands — combined, sequenced, and expressed around your business goals.</p>
+
+      <div class="genes">
+        <article class="gene reveal" style="--gc:#3EE6C1">
+          <span class="code">GENE A-01 · AI</span>
+          <div class="pairs"><i></i><i></i><i></i></div>
+          <h3>AI Consulting &amp; Automation</h3>
+          <p>Intelligent automation and AI solutions that streamline operations, reduce manual work, and free your team to focus on what matters most — growing the business.</p>
+        </article>
+        <article class="gene reveal d1" style="--gc:#8B7CFF">
+          <span class="code">GENE T-02 · TALENT</span>
+          <div class="pairs"><i></i><i></i><i></i></div>
+          <h3>IT Consulting &amp; Sub-Contracting</h3>
+          <p>Expert IT talent and consulting on demand. From infrastructure planning to technical implementation, we provide the expertise you need, exactly when you need it.</p>
+        </article>
+        <article class="gene reveal d2" style="--gc:#FFB454">
+          <span class="code">GENE C-03 · COMMERCE</span>
+          <div class="pairs"><i></i><i></i><i></i></div>
+          <h3>E-commerce &amp; Digital Sales Enablement</h3>
+          <p>Build, launch, and scale your online store with ease. Seamless shopping experiences that turn visitors into loyal customers and drive revenue growth.</p>
+        </article>
+        <article class="gene reveal d3" style="--gc:#FF6B9D">
+          <span class="code">GENE G-04 · GUARD</span>
+          <div class="pairs"><i></i><i></i><i></i></div>
+          <h3>Cybersecurity &amp; Cloud Transformation</h3>
+          <p>DFIR, ransomware containment, and forensic investigation — powered by cyberxdefend.com. Migrate to modern cloud infrastructure safely, with enterprise-grade security built in.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries" data-color="#8B7CFF">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="seq">SEQ 02</span> Industries we serve</div>
+      <h2 class="reveal d1">Proven expertise across multiple sectors.</h2>
+      <p class="lede reveal d2">We understand your industry's challenges and deliver solutions that work in the real world — not just on slides.</p>
+
+      <div class="codons">
+        <div class="codon reveal"><span class="tag">RTL</span><h3>Retail &amp; E-Commerce</h3><p>Digital storefronts and inventory management.</p></div>
+        <div class="codon reveal d1"><span class="tag">HLT</span><h3>Healthcare</h3><p>Patient management and compliance solutions.</p></div>
+        <div class="codon reveal d2"><span class="tag">FIN</span><h3>Finance &amp; Banking</h3><p>Secure payment systems and data analytics.</p></div>
+        <div class="codon reveal d3"><span class="tag">MFG</span><h3>Manufacturing</h3><p>Supply chain optimization and automation.</p></div>
+        <div class="codon reveal d4"><span class="tag">TEC</span><h3>Technology</h3><p>Scalable tech infrastructure from day one.</p></div>
+        <div class="codon reveal d5"><span class="tag">PRO</span><h3>Professional Services</h3><p>Client management and workflow automation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" data-color="#FFB454">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="seq">SEQ 03</span> Solutions</div>
+      <h2 class="reveal d1">Products and platforms we build.</h2>
+      <p class="lede reveal d2">Our portfolio of practical solutions for data, security, blockchain, and intelligent automation — each one a gene expressed from the same engineering DNA.</p>
+
+      <div class="strand-list">
+        <div class="product reveal" style="--pc:#FF6B9D">
+          <span class="node" aria-hidden="true"></span>
+          <a class="name" href="https://cyberxdefend.com" target="_blank" rel="noopener">cyberxdefend.com</a>
+          <span class="desc">DFIR platform for ransomware containment and forensic investigation.</span>
+          <span class="arrow">visit →</span>
+        </div>
+        <div class="product reveal d1" style="--pc:#FFB454">
+          <span class="node" aria-hidden="true"></span>
+          <a class="name" href="https://shopmuse.io" target="_blank" rel="noopener">shopmuse.io</a>
+          <span class="desc">AI-powered storefront builder that turns product catalogs into high-converting shops.</span>
+          <span class="arrow">visit →</span>
+        </div>
+        <div class="product reveal d2" style="--pc:#3EE6C1">
+          <span class="node" aria-hidden="true"></span>
+          <a class="name" href="https://chainfoundry.dev" target="_blank" rel="noopener">chainfoundry.dev</a>
+          <span class="desc">One Rust toolkit to decode, transport, and index data across 7 blockchain families.</span>
+          <span class="arrow">visit →</span>
+        </div>
+        <div class="product reveal d3" style="--pc:#8B7CFF">
+          <span class="node" aria-hidden="true"></span>
+          <a class="name" href="https://multimind.dev" target="_blank" rel="noopener">multimind.dev</a>
+          <span class="desc">Open-source SDK for building multi-agent LLM workflows in Python.</span>
+          <span class="arrow">visit →</span>
+        </div>
+        <div class="product reveal d4" style="--pc:#3EE6C1">
+          <span class="node" aria-hidden="true"></span>
+          <a class="name" href="https://dbabridge.com" target="_blank" rel="noopener">dbabridge.com</a>
+          <span class="desc">Hybrid Java+Rust migration tool to move SQL, NoSQL, and vector databases without downtime.</span>
+          <span class="arrow">visit →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us" data-color="#3EE6C1">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="seq">SEQ 04</span> Why choose us</div>
+      <h2 class="reveal d1">Partner with confidence.</h2>
+      <p class="lede reveal d2">We focus on delivering real business value — not just technology.</p>
+
+      <div class="helix-stats">
+        <div class="stat reveal"><h3><span>BASE PAIR 01</span>Business-First Approach</h3><p>We speak your language, not tech jargon. Solutions are designed around your business goals and deliver measurable ROI.</p></div>
+        <div class="stat reveal d1"><h3><span>BASE PAIR 02</span>End-to-End Support</h3><p>From strategy to implementation and beyond, we're with you every step. Training, documentation, and ongoing support included.</p></div>
+        <div class="stat reveal d2"><h3><span>BASE PAIR 03</span>Transparent Pricing</h3><p>No surprises, no hidden fees. Clear project scopes, fixed pricing options, and regular progress updates keep you in control.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section data-color="#FFB454" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Let's transform your business with AI.</h2>
+        <p class="lede">Ready to reduce costs, increase efficiency, and drive growth? Book your free strategy call today.</p>
+        <a class="btn btn-amber" href="#contact">Book Your Free Strategy Call</a>
+        <div class="cta-perks">
+          <span>FREE CONSULTATION</span>
+          <span>NO LONG-TERM CONTRACTS</span>
+          <span>RESULTS-DRIVEN</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" data-color="#8B7CFF" style="padding-top:30px">
+    <div class="wrap">
+      <div class="eyebrow reveal"><span class="seq">SEQ 05</span> Get in touch</div>
+      <h2 class="reveal d1">Let's start your transformation.</h2>
+      <p class="lede reveal d2">Tell us about your business goals and we'll show you how we can help. We reply within 24 hours.</p>
+
+      <div class="contact-grid">
+        <form class="reveal" id="contactForm">
+          <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="cf-msg">Your message</label><textarea id="cf-msg" name="message" required placeholder="What would you like to build or improve?"></textarea></div>
+          <button class="btn btn-amber" type="submit">Send message</button>
+        </form>
+        <div class="contact-side reveal d1">
+          <h3>Or email us directly</h3>
+          <p>Prefer email? Reach out to our team and we'll get back to you within one business day.</p>
+          <a class="mail-link" href="mailto:info@ai2innovate.io">info@ai2innovate.io</a>
+          <div class="socials">
+            <a href="https://www.linkedin.com/company/ai2innovate/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/ai2innovate" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top">AI<b>2</b>INNOVATE<span class="io">.IO</span></a>
+        <p>Your trusted partner for IT consulting, AI solutions, e-commerce, and cybersecurity. Making technology work for business.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><span>AI Consulting &amp; Automation</span></li>
+          <li><span>IT Consulting &amp; Subcontracting</span></li>
+          <li><span>E-Commerce Development</span></li>
+          <li><span>Cybersecurity &amp; Cloud</span></li>
+          <li><span>Data Analytics</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="mailto:info@ai2innovate.io">info@ai2innovate.io</a></li>
+          <li><a href="https://www.linkedin.com/company/ai2innovate/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/ai2innovate" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 AI2INNOVATE. All rights reserved.</span>
+      <span class="seq">SEQUENCE COMPLETE · ATCG-2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= DNA HELIX BACKGROUND ================= */
+(function(){
+  const canvas = document.getElementById('dna');
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let W, H, DPR;
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* theme color per section, smoothly interpolated */
+  const baseA = hexToRgb('#3EE6C1');
+  const baseB = hexToRgb('#8B7CFF');
+  let accent = {...baseA}, accentTarget = {...baseA};
+
+  function hexToRgb(h){
+    return { r:parseInt(h.slice(1,3),16), g:parseInt(h.slice(3,5),16), b:parseInt(h.slice(5,7),16) };
+  }
+  function rgba(c,a){ return `rgba(${c.r|0},${c.g|0},${c.b|0},${a})`; }
+  function lerp(a,b,t){ return a + (b-a)*t; }
+
+  /* watch sections for accent color */
+  const sections = document.querySelectorAll('section[data-color], header.hero');
+  const secObserver = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const col = e.target.getAttribute('data-color') || '#3EE6C1';
+        accentTarget = hexToRgb(col);
+      }
+    });
+  }, {threshold: 0.45});
+  sections.forEach(s=>secObserver.observe(s));
+
+  /* scroll + mouse state */
+  let scrollY = window.scrollY, targetScroll = scrollY;
+  let mouseX = 0, targetMouseX = 0;
+  window.addEventListener('scroll', ()=>{ targetScroll = window.scrollY; }, {passive:true});
+  window.addEventListener('mousemove', e=>{ targetMouseX = (e.clientX / W - 0.5); }, {passive:true});
+
+  /* floating particles (nucleotides drifting off the strand) */
+  const particles = [];
+  const P_COUNT = 36;
+  for(let i=0;i<P_COUNT;i++){
+    particles.push({
+      x: Math.random()*1, y: Math.random()*1,
+      r: Math.random()*1.8 + .6,
+      vy: (Math.random()*.12 + .03),
+      ph: Math.random()*Math.PI*2,
+      a: Math.random()*.5 + .15
+    });
+  }
+
+  let t = 0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    /* smooth values */
+    scrollY = lerp(scrollY, targetScroll, 0.06);
+    mouseX = lerp(mouseX, targetMouseX, 0.05);
+    accent.r = lerp(accent.r, accentTarget.r, 0.03);
+    accent.g = lerp(accent.g, accentTarget.g, 0.03);
+    accent.b = lerp(accent.b, accentTarget.b, 0.03);
+
+    const isMobile = W < 960;
+    /* helix drifts: right side on desktop hero, glides toward center as you scroll */
+    const docH = Math.max(1, document.documentElement.scrollHeight - H);
+    const prog = Math.min(1, scrollY / docH);
+    const cx = isMobile
+      ? W * 0.5
+      : W * (0.72 - 0.24 * Math.sin(prog * Math.PI));   // 0.72 → 0.48 → 0.72
+    const radius = isMobile ? W * 0.30 : Math.min(W * 0.16, 230);
+    const twist = 0.012;                                  // vertical frequency
+    const phase = (reduceMotion ? 0 : t * 0.4) + scrollY * 0.0042 + mouseX * 1.2;
+    const step = 7;                                       // px per sample
+    const rungEvery = 38;                                 // px between base pairs
+
+    /* glow */
+    const grad = ctx.createRadialGradient(cx, H*0.5, 0, cx, H*0.5, Math.max(W,H)*0.55);
+    grad.addColorStop(0, rgba(accent, 0.07));
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0,0,W,H);
+
+    function strandPoint(y, off){
+      const a = y * twist + phase + off;
+      return { x: cx + Math.sin(a) * radius, z: Math.cos(a) };  // z: -1..1 depth
+    }
+
+    /* base pair rungs */
+    for(let y = -rungEvery; y < H + rungEvery; y += rungEvery){
+      const yy = y + ((scrollY * 0.25) % rungEvery);
+      const p1 = strandPoint(yy, 0);
+      const p2 = strandPoint(yy, Math.PI);
+      const depth = (p1.z + 1) / 2;
+      ctx.beginPath();
+      ctx.moveTo(p1.x, yy);
+      ctx.lineTo(p2.x, yy);
+      ctx.strokeStyle = rgba(accent, 0.06 + depth * 0.16);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      /* nucleotide dots at rung ends */
+      dot(p1.x, yy, 2.2 + p1.z, {r:62,g:230,b:193}, p1.z);
+      dot(p2.x, yy, 2.2 + p2.z, {r:139,g:124,b:255}, p2.z);
+    }
+
+    function dot(x,y,r,c,z){
+      const depth = (z + 1) / 2;
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(0.8, r), 0, Math.PI*2);
+      ctx.fillStyle = rgba(c, 0.25 + depth * 0.6);
+      ctx.fill();
+    }
+
+    /* two backbone strands */
+    drawStrand(0, {r:62,g:230,b:193});
+    drawStrand(Math.PI, {r:139,g:124,b:255});
+
+    function drawStrand(off, col){
+      /* back pass (far side) then front pass for depth */
+      for(const pass of [0,1]){
+        ctx.beginPath();
+        let started = false;
+        for(let y = -step; y < H + step; y += step){
+          const p = strandPoint(y, off);
+          const front = p.z >= 0;
+          if((pass===1) === front){
+            if(!started){ ctx.moveTo(p.x, y); started = true; }
+            else ctx.lineTo(p.x, y);
+          } else if(started){
+            ctx.strokeStyle = rgba(col, pass===1 ? 0.85 : 0.22);
+            ctx.lineWidth = pass===1 ? 2.4 : 1.4;
+            ctx.stroke();
+            ctx.beginPath(); started = false;
+          }
+        }
+        if(started){
+          ctx.strokeStyle = rgba(col, pass===1 ? 0.85 : 0.22);
+          ctx.lineWidth = pass===1 ? 2.4 : 1.4;
+          ctx.stroke();
+        }
+      }
+    }
+
+    /* drifting nucleotide particles */
+    for(const p of particles){
+      p.y -= p.vy / H;
+      if(p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
+      const px = p.x * W + Math.sin(t + p.ph) * 14;
+      const py = p.y * H;
+      ctx.beginPath();
+      ctx.arc(px, py, p.r, 0, Math.PI*2);
+      ctx.fillStyle = rgba(accent, p.a * 0.5);
+      ctx.fill();
+    }
+
+    if(!reduceMotion) t += 0.016;
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ================= SCROLL REVEALS ================= */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+  els.forEach(el=>obs.observe(el));
+})();
+
+/* ================= CONTACT FORM → MAILTO ================= */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = encodeURIComponent(this.name.value.trim());
+  const email = encodeURIComponent(this.email.value.trim());
+  const msg = encodeURIComponent(this.message.value.trim());
+  window.location.href = `mailto:info@ai2innovate.io?subject=Strategy call request from ${name}&body=${msg}%0A%0AFrom: ${name} (${decodeURIComponent(email)})`;
+});
+</script>
+</body>
+</html>
