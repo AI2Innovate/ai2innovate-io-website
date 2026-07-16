@@ -36,6 +36,7 @@ export function DnaHome() {
 
   const rootRef = useRef<HTMLDivElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error"
@@ -85,6 +86,23 @@ export function DnaHome() {
       document.body.style.background = prevBg
     }
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isMobileMenuOpen])
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 1100) setIsMobileMenuOpen(false)
+    }
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [])
+
+  const closeMobileMenu = () => setIsMobileMenuOpen(false)
 
   useEffect(() => {
     const root = rootRef.current
@@ -174,7 +192,7 @@ export function DnaHome() {
       accent.g = lerp(accent.g, accentTarget.g, 0.03)
       accent.b = lerp(accent.b, accentTarget.b, 0.03)
 
-      const isMobile = W < 960
+      const isMobile = W < 1100
       const docH = Math.max(1, document.documentElement.scrollHeight - H)
       const prog = Math.min(1, scrollY / docH)
       const cx = isMobile ? W * 0.5 : W * (0.72 - 0.24 * Math.sin(prog * Math.PI))
@@ -361,10 +379,11 @@ export function DnaHome() {
 
       <nav className={styles.nav}>
         <div className={styles.navIn}>
-          <a className={styles.logo} href="#top">
+          <a className={styles.logo} href="#top" onClick={closeMobileMenu}>
             AI<b>2</b>INNOVATE<span className={styles.io}>.IO</span>
           </a>
-          <div className={styles.navLinks}>
+
+          <div className={styles.navDesktop}>
             <a href="#services">{t.nav.services}</a>
             <a href="#industries">{t.nav.industries}</a>
             <a href="#solutions">{t.nav.solutions}</a>
@@ -376,6 +395,45 @@ export function DnaHome() {
               {t.nav.bookFreeCall}
             </a>
           </div>
+
+          <div className={styles.navMobileActions}>
+            <div className={styles.lang}>
+              <LanguageSwitcher />
+            </div>
+            <button
+              type="button"
+              className={styles.menuToggle}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+            >
+              <span className={isMobileMenuOpen ? styles.menuToggleOpen : undefined} />
+              <span className={isMobileMenuOpen ? styles.menuToggleOpen : undefined} />
+              <span className={isMobileMenuOpen ? styles.menuToggleOpen : undefined} />
+            </button>
+          </div>
+        </div>
+
+        <div className={[styles.mobileMenu, isMobileMenuOpen ? styles.mobileMenuOpen : ""].join(" ")}>
+          <a href="#services" onClick={closeMobileMenu}>
+            {t.nav.services}
+          </a>
+          <a href="#industries" onClick={closeMobileMenu}>
+            {t.nav.industries}
+          </a>
+          <a href="#solutions" onClick={closeMobileMenu}>
+            {t.nav.solutions}
+          </a>
+          <a href="#why-us" onClick={closeMobileMenu}>
+            {t.nav.whyUs}
+          </a>
+          <a
+            href="#contact"
+            className={[styles.btn, styles.btnAmber, styles.mobileMenuCta].join(" ")}
+            onClick={closeMobileMenu}
+          >
+            {t.nav.bookFreeCall}
+          </a>
         </div>
       </nav>
 
@@ -626,7 +684,7 @@ export function DnaHome() {
         </section>
 
         {/* CTA */}
-        <section className={styles.section} data-color="#FFB454" style={{ paddingTop: 0 }}>
+        <section className={[styles.section, styles.sectionTightTop].join(" ")} data-color="#FFB454">
           <div className={styles.wrap}>
             <div className={[styles.ctaBand, styles.reveal].join(" ")} data-reveal="1">
               <h2 className={styles.h2}>{t.cta.title}</h2>
@@ -644,7 +702,7 @@ export function DnaHome() {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className={styles.section} data-color="#8B7CFF" style={{ paddingTop: 30 }}>
+        <section id="contact" className={[styles.section, styles.sectionContact].join(" ")} data-color="#8B7CFF">
           <div className={styles.wrap}>
             <div className={[styles.eyebrow, styles.reveal].join(" ")} data-reveal="1">
               <span className={styles.seq}>SEQ 05</span> {t.contact.eyebrow}

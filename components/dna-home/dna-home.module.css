@@ -55,6 +55,14 @@
   padding: 130px 0;
 }
 
+.sectionTightTop {
+  padding-top: 0;
+}
+
+.sectionContact {
+  padding-top: 30px;
+}
+
 .eyebrow {
   font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
   font-size: 0.78rem;
@@ -154,13 +162,13 @@
   color: var(--strand-b);
 }
 
-.navLinks {
+.navDesktop {
   display: flex;
   gap: 30px;
   align-items: center;
 }
 
-.navLinks a {
+.navDesktop a {
   color: var(--mute);
   text-decoration: none;
   font-size: 0.92rem;
@@ -168,9 +176,57 @@
   transition: color 0.2s;
 }
 
-.navLinks a:hover,
-.navLinks a:focus-visible {
+.navDesktop a:hover,
+.navDesktop a:focus-visible {
   color: var(--paper);
+}
+
+.navMobileActions {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.menuToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(11, 18, 34, 0.55);
+  cursor: pointer;
+}
+
+.menuToggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--paper);
+  border-radius: 2px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.menuToggle span.menuToggleOpen:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuToggle span.menuToggleOpen:nth-child(2) {
+  opacity: 0;
+}
+
+.menuToggle span.menuToggleOpen:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobileMenu {
+  display: none;
 }
 
 .btn {
@@ -197,6 +253,13 @@
   outline-offset: 3px;
 }
 
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .btnAmber {
   background: var(--amber);
   color: #1a1206;
@@ -221,6 +284,7 @@
 .navCta {
   padding: 10px 20px;
   font-size: 0.86rem;
+  white-space: nowrap;
 }
 
 .lang :global(button) {
@@ -802,49 +866,482 @@
 }
 
 /* ---------- responsive ---------- */
-@media (max-width: 960px) {
+
+/* Large tablet / small laptop: hamburger + balanced grids */
+@media (max-width: 1100px) {
+  .wrap {
+    padding: 0 24px;
+  }
+
+  .navIn {
+    padding: 14px 24px;
+    gap: 12px;
+  }
+
+  .navDesktop {
+    display: none;
+  }
+
+  .navMobileActions {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 24px 24px;
+    border-top: 1px solid var(--line);
+    background: rgba(7, 11, 22, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      padding 0.3s ease;
+  }
+
+  .mobileMenuOpen {
+    max-height: 480px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 16px 24px 28px;
+  }
+
+  .mobileMenu a:not(.mobileMenuCta) {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 1.08rem;
+    font-weight: 500;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s;
+  }
+
+  .mobileMenu a:not(.mobileMenuCta):hover,
+  .mobileMenu a:not(.mobileMenuCta):focus-visible {
+    color: var(--strand-a);
+  }
+
+  .mobileMenuCta {
+    margin-top: 18px;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    align-self: center;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 130px 0 72px;
+  }
+
   .heroGrid {
     grid-template-columns: 1fr;
+    gap: 0;
   }
-  .genes,
-  .helixStats,
-  .contactGrid {
-    grid-template-columns: 1fr;
+
+  .h1 {
+    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
   }
+
+  .h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    max-width: 24ch;
+  }
+
+  .section {
+    padding: 88px 0;
+  }
+
+  .sectionTightTop {
+    padding-top: 0;
+  }
+
+  .sectionContact {
+    padding-top: 28px;
+  }
+
+  .genes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 44px;
+  }
+
+  .gene {
+    padding: 28px 24px 26px;
+  }
+
   .codons {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 44px;
   }
+
+  .strandList {
+    margin-top: 48px;
+  }
+
+  .product {
+    grid-template-columns: 48px minmax(140px, 200px) 1fr;
+    gap: 14px;
+    padding: 24px 0;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .helixStats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 44px;
+  }
+
+  .stat {
+    padding: 28px 22px;
+  }
+
+  .ctaBand {
+    padding: 52px 36px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    margin-top: 44px;
+  }
+
+  .footGrid {
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer {
+    padding: 46px 0 34px;
+  }
+}
+
+/* Tablet portrait / compact tablet */
+@media (max-width: 900px) {
+  .wrap {
+    padding: 0 22px;
+  }
+
+  .navIn,
+  .mobileMenu,
+  .mobileMenuOpen {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .hero {
+    padding: 120px 0 64px;
+  }
+
+  .h1 {
+    font-size: clamp(2.15rem, 6vw, 3.1rem);
+  }
+
+  .h2 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    max-width: 22ch;
+  }
+
+  .lede {
+    font-size: 1.02rem;
+    margin-top: 14px;
+  }
+
+  .section {
+    padding: 76px 0;
+  }
+
+  .sectionContact {
+    padding-top: 24px;
+  }
+
+  .heroCtas {
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .geneTicker {
+    margin-top: 36px;
+    gap: 14px 18px;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+  }
+
+  .genes {
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .gene {
+    padding: 24px 20px 22px;
+  }
+
+  .codons {
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .codon {
+    padding: 20px 18px;
+  }
+
   .product {
     grid-template-columns: 44px 1fr;
     grid-template-rows: auto auto;
     row-gap: 8px;
+    padding: 22px 0;
+    gap: 12px;
   }
+
   .productDesc {
     grid-column: 2;
   }
-  .arrow {
-    display: none;
+
+  .helixStats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 36px;
   }
+
+  .stat {
+    padding: 24px 20px;
+  }
+
+  .ctaBand {
+    padding: 42px 28px;
+  }
+
+  .ctaBand .lede {
+    margin: 0 auto 28px;
+  }
+
+  .ctaPerks {
+    margin-top: 24px;
+    gap: 14px 18px;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 36px;
+  }
+
+  .mobileMenuCta {
+    max-width: none;
+  }
+
   .footGrid {
     grid-template-columns: 1fr 1fr;
+    gap: 28px;
   }
-  .navLinks a:not(.navCta) {
-    display: none;
+
+  .footBrand {
+    grid-column: 1 / -1;
   }
-  .ctaBand {
-    padding: 50px 26px;
-  }
-  .section {
-    padding: 90px 0;
+
+  .copyright {
+    margin-top: 32px;
+    padding-top: 20px;
   }
 }
 
-@media (max-width: 560px) {
+/* Phones */
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
+  }
+
+  .navIn {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 0.9rem;
+  }
+
+  .mobileMenu,
+  .mobileMenuOpen {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mobileMenu a:not(.mobileMenuCta) {
+    font-size: 1.02rem;
+    padding: 13px 2px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 100px 0 48px;
+  }
+
+  .h1 {
+    font-size: clamp(1.95rem, 10vw, 2.6rem);
+  }
+
+  .h2 {
+    max-width: none;
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
+  }
+
+  .h3 {
+    font-size: 1.08rem;
+  }
+
+  .lede {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    gap: 10px;
+    font-size: 0.7rem;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .sectionTightTop {
+    padding-top: 0;
+  }
+
+  .sectionContact {
+    padding-top: 16px;
+  }
+
+  .heroCtas {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroCtas .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .geneTicker {
+    margin-top: 28px;
+    gap: 10px 14px;
+    letter-spacing: 0.1em;
+    font-size: 0.66rem;
+  }
+
+  .genes {
+    grid-template-columns: 1fr;
+    margin-top: 28px;
+    gap: 14px;
+  }
+
+  .gene {
+    padding: 22px 18px 20px;
+  }
+
+  .pairs {
+    right: 16px;
+    top: 20px;
+  }
+
   .codons {
     grid-template-columns: 1fr;
+    margin-top: 28px;
+    gap: 12px;
   }
+
+  .strandList {
+    margin-top: 32px;
+  }
+
+  .strandList::before {
+    left: 11px;
+  }
+
+  .product {
+    padding: 18px 0;
+    gap: 10px;
+  }
+
+  .productName {
+    font-size: 1rem;
+  }
+
+  .helixStats {
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .stat {
+    padding: 22px 18px;
+  }
+
+  .ctaBand {
+    padding: 32px 18px;
+    border-radius: 20px;
+  }
+
+  .ctaBand .lede {
+    margin: 0 auto 24px;
+  }
+
+  .ctaPerks {
+    margin-top: 20px;
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaPerks span {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .contactGrid {
+    gap: 28px;
+    margin-top: 28px;
+  }
+
+  .field input,
+  .field textarea {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
   .footGrid {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footBrand {
+    grid-column: auto;
+  }
+
+  .footer {
+    padding: 36px 0 28px;
+  }
+
+  .copyright {
+    margin-top: 28px;
+    gap: 8px;
   }
 }
 
