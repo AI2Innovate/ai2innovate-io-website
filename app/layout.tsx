@@ -21,9 +21,12 @@ export const metadata: Metadata = {
     "AI consulting, automation, digital commerce and cybersecurity. AI2Innovate engineers the technology genome of your business.",
   generator: "v0.app",
   icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/AI2innovate-logo.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/AI2innovate-logo.png",
+    apple: "/AI2innovate-logo.png",
   },
 }
 

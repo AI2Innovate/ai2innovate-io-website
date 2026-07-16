@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react"
+import Image from "next/image"
 import { Sora, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
 import { useLanguage } from "@/lib/i18n/context"
 import { dnaTranslations, formatDnaYear } from "@/lib/i18n/translations/dna"
@@ -380,7 +381,14 @@ export function DnaHome() {
       <nav className={styles.nav}>
         <div className={styles.navIn}>
           <a className={styles.logo} href="#top" onClick={closeMobileMenu}>
-            AI<b>2</b>INNOVATE<span className={styles.io}>.IO</span>
+            <Image
+              src="/AI2innovate-logo.png"
+              alt="AI2Innovate"
+              width={160}
+              height={160}
+              className={styles.logoImg}
+              priority
+            />
           </a>
 
           <div className={styles.navDesktop}>
@@ -637,7 +645,14 @@ export function DnaHome() {
                     {s.name}
                   </a>
                   <span className={styles.productDesc}>{s.description}</span>
-                  <span className={styles.arrow}>{t.solutions.visit}</span>
+                  <a
+                    className={styles.arrow}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.solutions.visit}
+                  </a>
                 </div>
               ))}
             </div>
@@ -768,7 +783,13 @@ export function DnaHome() {
           <div className={styles.footGrid}>
             <div className={styles.footBrand}>
               <a className={styles.logo} href="#top">
-                AI<b>2</b>INNOVATE<span className={styles.io}>.IO</span>
+                <Image
+                  src="/AI2innovate-logo.png"
+                  alt="AI2Innovate"
+                  width={160}
+                  height={160}
+                  className={styles.logoImg}
+                />
               </a>
               <p>{t.footer.tagline}</p>
             </div>

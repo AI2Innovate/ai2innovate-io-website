@@ -24,7 +24,7 @@ export function Footer() {
           {/* Top section with logo and description */}
           <div className="mb-12 text-center md:text-left">
             <Image
-              src="/logo.png"
+              src="/AI2innovate-logo.png"
               alt="AI2INNOVATE.IO"
               width={150}
               height={100}

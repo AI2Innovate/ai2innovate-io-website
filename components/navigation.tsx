@@ -42,7 +42,7 @@ export function Navigation() {
           <div className="flex-shrink-0">
             <a href="/">
               <Image
-                src="/logo.png"
+                src="/AI2innovate-logo.png"
                 alt="AI2INNOVATE.IO"
                 width={150}
                 height={100}
