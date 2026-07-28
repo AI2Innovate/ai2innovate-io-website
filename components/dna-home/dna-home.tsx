@@ -806,10 +806,10 @@ export function DnaHome() {
                   <a href="#solutions">{t.footer.linkSolutions}</a>
                 </li>
                 <li>
-                  <a href="#why-us">{t.footer.linkWhyUs}</a>
+                  <a href="/privacy">{t.footer.linkPrivacy}</a>
                 </li>
                 <li>
-                  <a href="#contact">{t.footer.linkContact}</a>
+                  <a href="/cookies">{t.footer.linkCookies}</a>
                 </li>
               </ul>
             </div>

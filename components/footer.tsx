@@ -52,18 +52,18 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#why-us" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Why Choose Us
-                  </a>
-                </li>
-                <li>
                   <a href="#case-studies" className="text-primary-foreground/80 hover:text-accent transition-colors">
                     Case Studies
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                    Contact
+                  <a href="/privacy" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/cookies" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                    Cookies
                   </a>
                 </li>
               </ul>
