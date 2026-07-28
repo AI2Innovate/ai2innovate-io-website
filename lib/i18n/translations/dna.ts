@@ -108,6 +108,8 @@ export interface DnaTranslations {
     service5: string
     copyright: string
     sequenceComplete: string
+    linkPrivacy: string
+    linkCookies: string
   }
 }
 
@@ -234,7 +236,9 @@ export const dnaTranslations: Record<Language, DnaTranslations> = {
       service4: "Cybersecurity & Cloud",
       service5: "Data Analytics",
       copyright: "© {year} AI2INNOVATE. All rights reserved.",
-      sequenceComplete: "SEQUENCE COMPLETE · ATCG-{year}",
+      sequenceComplete: "Ai2INNOVATE SRL · AVENUE LOUISE, 523 1050 IXELLEs, Belgium",
+      linkPrivacy: "Privacy Policy",
+      linkCookies: "Cookies",
     },
   },
   fr: {
@@ -359,7 +363,9 @@ export const dnaTranslations: Record<Language, DnaTranslations> = {
       service4: "Cybersécurité & Cloud",
       service5: "Analytique de données",
       copyright: "© {year} AI2INNOVATE. Tous droits réservés.",
-      sequenceComplete: "SÉQUENCE COMPLÈTE · ATCG-{year}",
+      sequenceComplete: "Ai2INNOVATE SRL · AVENUE LOUISE, 523 1050 IXELLEs, Belgium",
+      linkPrivacy: "Politique de confidentialité",
+      linkCookies: "Cookies",
     },
   },
   de: {
@@ -484,7 +490,9 @@ export const dnaTranslations: Record<Language, DnaTranslations> = {
       service4: "Cybersicherheit & Cloud",
       service5: "Datenanalyse",
       copyright: "© {year} AI2INNOVATE. Alle Rechte vorbehalten.",
-      sequenceComplete: "SEQUENZ ABGESCHLOSSEN · ATCG-{year}",
+      sequenceComplete: "Ai2INNOVATE SRL · AVENUE LOUISE, 523 1050 IXELLEs, Belgium",
+      linkPrivacy: "Datenschutz",
+      linkCookies: "Cookies",
     },
   },
   nl: {
@@ -609,7 +617,9 @@ export const dnaTranslations: Record<Language, DnaTranslations> = {
       service4: "Cybersecurity & Cloud",
       service5: "Data-analyse",
       copyright: "© {year} AI2INNOVATE. Alle rechten voorbehouden.",
-      sequenceComplete: "SEQUENTIE VOLTOOID · ATCG-{year}",
+      sequenceComplete: "Ai2INNOVATE SRL · AVENUE LOUISE, 523 1050 IXELLEs, Belgium",
+      linkPrivacy: "Privacybeleid",
+      linkCookies: "Cookies",
     },
   },
   sk: {
@@ -734,7 +744,9 @@ export const dnaTranslations: Record<Language, DnaTranslations> = {
       service4: "Kybernetická bezpečnosť & Cloud",
       service5: "Dátová analytika",
       copyright: "© {year} AI2INNOVATE. Všetky práva vyhradené.",
-      sequenceComplete: "SEKVENCIA DOKONČENÁ · ATCG-{year}",
+      sequenceComplete: "Ai2INNOVATE SRL · AVENUE LOUISE, 523 1050 IXELLEs, Belgium",
+      linkPrivacy: "Ochrana súkromia",
+      linkCookies: "Cookies",
     },
   },
 }
