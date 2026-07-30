@@ -34,7 +34,7 @@ export type LegalTranslations = {
 
 const company = {
   name: "Ai2INNOVATE SRL",
-  address: "Avenue Louise, 523, 1050 Ixelles, Belgium",
+  address: "Avenue Louise 231, 1050 Ixelles, Belgium",
   email: "info@ai2innovate.io",
 }
 
